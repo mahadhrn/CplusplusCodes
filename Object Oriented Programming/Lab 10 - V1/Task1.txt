@@ -1,0 +1,59 @@
+#include<iostream>
+using namespace std;
+class ReleaseDate
+{
+protected:
+	int day, month, year;
+public:
+	ReleaseDate()
+	{
+		day = 0;
+		month = 0;
+		year = 0;
+	}
+	void setdates(int d, int m, int y)
+	{
+		day = d;
+		month = m;
+		year = y;
+	}
+	void display()
+	{
+		cout << day << "/" << month << "/" << year << endl;
+	}
+};
+class Product
+{
+protected:
+	char* name;
+	int price;
+public:
+	ReleaseDate date;
+	Product()
+	{
+		name = NULL;
+		price = 0;
+	}
+	void setproduct(char* n, int p)
+	{
+		name = n;
+		price = p;
+	}
+	void display_details()
+	{
+		cout << "Product : " << name;
+		cout << "\nPrice : " << price;
+		cout << "\nDate : ";
+		date.display();
+		cout << endl;
+	}
+};
+int main()
+{
+	Product obj;
+	obj.date.setdates(12, 4, 2020);
+	obj.setproduct("Bread", 180);
+	obj.display_details();
+
+	return 0;
+}

@@ -1,0 +1,88 @@
+#include<iostream>
+using namespace std;
+
+class dob {
+protected:
+	int day, month, year;
+public:
+	dob() {
+		day = 0;
+		month = 0;
+		year = 0;
+	}
+
+	void setdob(int d, int m, int y) {
+		day = d;
+		month = m;
+		year = y;
+	}
+
+	void display() {
+		cout << day << "/" << month << "/" << year << endl;
+	}
+};
+
+class Address {
+protected:
+	int housenumber;
+	char* city;
+	char* country;
+public:
+	Address() {
+		housenumber = 0;
+		city = new char;
+		country = new char;
+	}
+
+	void setAddress(int h, char* c, char* co) {
+		housenumber = h;
+		city = c;
+		country = co;
+	}
+
+	void display2() {
+		cout << "House Number :" << housenumber << endl;
+		cout << "City :" << city << endl;
+		cout << "Country :" << country << endl;
+	}
+};
+
+class people {
+protected:
+	char* name;
+	char* CNIC;
+public:
+	dob dd;				//Composition (Object initiated in Sub-Class)
+	Address add;
+
+	people() {
+		name = new char;
+		CNIC = new char;
+	}
+
+	void setPeople(char* n, char* nic) {
+		name = n;
+		CNIC = nic;
+	}
+
+	void display3() {
+		cout << "Name : " << name << endl;
+		cout << "CNIC : " << CNIC << endl;
+		add.display2();
+		cout << "Date of Birth : ";
+		dd.display();
+	}
+};
+
+
+
+
+int main()
+{
+	people obj;
+	obj.dd.setdob(21, 12, 2001);
+	obj.add.setAddress(326, "Lahore", "Pakistan");
+	obj.setPeople("Mahad", "12345");
+	obj.display3();
+	return 0;
+}

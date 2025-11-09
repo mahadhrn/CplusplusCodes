@@ -1,0 +1,56 @@
+// TASK 5
+
+#include<iostream>
+using namespace std;
+class automobile
+{
+    public:
+    
+        string serial;
+        int year;
+        string material;
+        string quality;
+    
+        
+    void set()
+    {
+        cout << "\t\t------------------ Automobile Company ------------------ \n\n";
+		cout << "Enter Serial No :"; cin >> serial;
+        cout << "Enter Year :"; cin >> year;
+		cout << "Enter Material :"; cin >> material;
+		cout << "Enter Quality :"; cin >> quality;
+    }
+    
+    
+    
+    void Year_Manufacture()
+    {
+        cout<<"\n----------------------------------------"<<endl;
+        cout<<"PRODUCT : "<<serial;
+        cout<<"\nYear of Manufacture : "<<year;
+    }
+    
+    void Material()
+    {
+        cout<<"\nMaterial : "<<material;
+    }
+    
+    void Quality()
+    {
+        cout<<"\nQuality of Material : "<<quality;
+    }
+    
+   
+  
+};
+
+int main()
+{
+    automobile obj;
+    obj.set();
+    obj.Year_Manufacture();
+    obj.Material();
+    obj.Quality();
+  
+    return 0;
+}

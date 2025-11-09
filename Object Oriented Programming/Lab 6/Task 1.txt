@@ -1,0 +1,97 @@
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+
+class car{
+    private:
+        char* name = new char;
+        char* model = new char;
+        int noOfDoor;
+    public:
+        car();
+        car(char* Name, char* Model, int noOfDoor);
+        void setName(char *Name);
+        void setModel(char *Model);
+        void setDoor(int noOfDoor);
+    
+        car(const car& sample);
+        void getName();
+        void getModel();
+        void getDoor();
+        void display();
+        ~car();
+        
+};
+
+car::car()
+{
+    cout<<"Constructor is Called."<<endl;
+}
+
+car::car(char* Name, char* Model, int NOD)
+{
+    name = Name;
+    model = Model;
+    noOfDoor = NOD;
+}
+void car::setName(char *Name){
+    name = Name;
+}
+void car::setModel(char *Model){
+    name = Model;
+}
+void car::setDoor(int NOD){
+    noOfDoor = NOD;
+}
+
+car::car(const car& sample){                // Deep Copy
+    name = sample.name;
+    model = sample.model;
+    noOfDoor = sample.noOfDoor;
+}
+
+
+
+void car::getName(){
+    cout<<"Car Name is : "<< name <<endl;
+}
+void car::getModel(){
+    cout<<"Car Model is : "<< model <<endl;
+}
+void car::getDoor(){
+    cout<<"Number of Doors : "<< noOfDoor <<endl;
+}
+void car::display(){
+    cout << "Car name is : " << name << endl;
+    cout << "Car model is : " << model << endl;
+    cout << "Number of Door is :" << noOfDoor << endl;
+}
+
+car::~car(){
+    delete name;
+    delete model;
+}
+
+int main()
+{
+    const int size = 20;
+    char *name = new char[size];
+    char *model = new char[size];
+    int door;
+    
+    cout<<"Enter name of car: ";
+    cin.getline(name,size);
+    cout<<"Enter model of car: ";
+    cin.getline(model,size);
+    cout<<"Enter door of car: ";
+    cin>>door;
+    
+    car obj;
+    obj(*name,*model,int door);
+    obj.display();
+    
+    car obj2 = obj;
+    obj2.display();
+    return 0;
+    
+}

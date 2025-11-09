@@ -1,0 +1,92 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class employee
+{
+private:
+  string employeeCode;
+  string name;
+  int joiningYear;
+
+public:
+  void setName(string);
+  string getName();
+  void setCode(string);
+  string getCode();
+  void setDate(int);
+  int getDate();
+  void printData();
+};
+
+void employee::setName(string temp)
+{
+  name = temp;
+}
+string employee::getName()
+{
+  return name;
+}
+void employee::setCode(string code)
+{
+  employeeCode = code;
+}
+string employee::getCode()
+{
+  return employeeCode;
+}
+void employee::setDate(int num0)
+{
+  joiningYear = num0;
+}
+int employee::getDate()
+{
+  return joiningYear;
+}
+void employee::printData()
+{
+
+  cout << "Name: " << name << endl;
+  cout << "Employee Code: " << employeeCode << endl;
+  cout << "Date: " << joiningYear << endl;
+}
+int main()
+{
+
+  employee ep1, ep2, ep3;
+  ep1.setName("Ahmad");
+  ep1.setCode("001");
+  ep1.setDate(2002);
+
+  ep2.setName("Ali");
+  ep2.setCode("002");
+  ep2.setDate(2012);
+
+  ep3.setName("Jawad");
+  ep3.setCode("003");
+  ep3.setDate(2021);
+
+  int num,month,year;
+  cout << "Enter current date: ";
+  cin >> year;
+  cout<<"Enter current month ";
+  cin>>month;
+  cout<<"Enter current year ";
+  cin>>num;
+  
+  if (num - ep1.getDate() >= 2)
+  {
+    ep1.printData();
+  }
+  if (num - ep2.getDate() >= 2)
+  {
+    ep2.printData();
+  }
+  if (num - ep3.getDate() >= 2)
+  {
+    ep3.printData();
+  }
+
+  system("pause");
+  return 0;
+}

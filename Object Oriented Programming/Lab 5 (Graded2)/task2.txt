@@ -1,0 +1,151 @@
+// Task 2
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Time {
+private:
+    int hours;
+    int minutes;
+    int seconds;
+public:
+    Time();
+    Time(int h, int m, int s);
+    Time(const Time& obj);
+    void setTime(int h, int m, int s);
+    int getHours();
+    int getMinutes();
+    int getSeconds();
+    void showTime();
+    void tick();
+};
+
+Time::Time() {
+    hours = 0;
+    minutes = 0;
+    seconds = 0;
+}
+
+Time::Time(int h, int m, int s) {
+    hours = h;
+    minutes = m;
+    seconds = s;
+}
+
+Time::Time(const Time& obj) {
+    hours = obj.hours;
+    minutes = obj.minutes;
+    seconds = obj.seconds;
+}
+
+void Time::setTime(int h, int m, int s) {
+    hours = h;
+    minutes = m;
+    seconds = s;
+}
+
+int Time::getHours() {
+    return hours;
+}
+
+int Time::getMinutes() {
+    return minutes;
+}
+
+int Time::getSeconds() {
+    return seconds;
+}
+
+void Time::showTime() {
+    string am_pm = (hours < 12) ? "AM" : "PM";
+    if(hours == 0) {
+        hours += 12;
+    }
+    if(hours > 12) {
+        hours -= 12;
+    }
+    cout << setfill('0') << setw(2) << hours << ":"
+         << setw(2) << minutes << ":"
+         << setw(2) << seconds << " " << am_pm << endl;
+}
+
+void Time::tick() {
+    seconds++;
+    if(seconds == 60) {
+        seconds = 0;
+        minutes++;
+    }
+    if(minutes == 60) {
+        minutes = 0;
+        hours++;
+    }
+    if(hours == 24) {
+        hours = 0;
+    }
+}
+
+int main() {
+    Time t1, t2, t3, t4, t5;
+    int h, m, s;
+    cout << "Enter Hour: ";
+    cin >> h;
+    cout << "Enter Minute: ";
+    cin >> m;
+    cout << "Enter Second: ";
+    cin >> s;
+    t1.setTime(h, m, s);
+    cout << "\n";
+    cout << "Enter Hour: ";
+    cin >> h;
+    cout << "Enter Minute: ";
+    cin >> m;
+    cout << "Enter Second: ";
+    cin >> s;
+    t2.setTime(h, m, s);
+    cout << "\n";
+    t1.showTime();
+    cout << "\n";
+    t2.showTime();
+    cout << "\n";
+    if(t1.getHours() == t2.getHours()) {
+        if(t1.getMinutes() == t2.getMinutes()) {
+            if(t1.getSeconds() == t2.getSeconds()) {
+                cout << "The time with shorter distance is: Both times are equal";
+            } else if(t1.getSeconds() < t2.getSeconds()) {
+                cout << "The time with shorter distance is: ";
+                t1.showTime();
+            } else {
+                cout << "The time with shorter distance is: ";
+                t2.showTime();
+            }
+        } else if(t1.getMinutes() < t2.getMinutes()) {
+            cout << "The time with shorter distance is: ";
+            t1.showTime();
+        } else {
+            cout << "The time with shorter distance is: ";
+            t2.showTime();
+        }
+    } else if(t1.getHours() < t2.getHours()) {
+        cout << "The time with shorter distance is: ";
+        t1.showTime();
+    } else {
+        cout << "The time with shorter distance is: ";
+        t2.showTime();
+    }
+    cout << "\n";
+    for(int i = 0; i < 10; i++) {
+        t1.tick();
+    }
+    t1.showTime();
+    cout << "\n";
+    t3.showTime();
+    cout << "\n";
+    t4.setTime(10, 56, 5);
+    t4.showTime();
+    cout << "\n";
+    t5 = t4;
+    t5.showTime();
+    cout << "\n";
+    return 0;
+} 

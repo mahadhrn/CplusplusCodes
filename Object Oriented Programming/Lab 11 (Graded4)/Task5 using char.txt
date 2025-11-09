@@ -1,0 +1,105 @@
+// TASK5 using Char[]
+
+#include<iostream>
+using namespace std;
+
+//Person class
+class person{
+private:
+	char name[20];
+	int age;
+public:
+	person() {}
+	//Parametrized Constructor
+	person(char n[20], int a)
+	{
+		name[20] = n[20];
+		age = a;
+	}
+	//Setter Getter
+	void setperson()
+	{
+		cout << "Enter name of person :";
+		cin.getline(name, 20);
+		cout << "Age :";
+		cin >> age;
+	}
+	//Display 
+	void displayn(){
+		cout << "Name :" << name << endl;
+		cout << "Age :" << age << endl;
+	}
+	~person(){}
+};
+
+// Employee Class 
+class employee{
+private:
+	char emp[20];
+	int salary;
+public:
+	employee(){}
+	//Parametrized Constructor
+	employee(char e[20], int s)
+	{
+		emp[20] = e[20];
+		salary = s;
+	}
+	//Setter and Getter
+	void setemp()
+	{
+		cout << "Enter name of employee :";
+		cin.ignore();
+		cin.getline(emp, 20);
+		cout << endl;
+		cout << "Enter salary :";
+		cin >> salary;
+	}
+	//Display
+	void displaye()
+	{
+		cout << "Employee Name :" << emp << endl;
+		cout << "Salary :" << salary << endl;
+	}
+	~employee(){}
+};
+
+// Teacher Class derived from Base Class Employee & Person.
+class teacher :public employee, public person{
+private:
+	int wage;
+public:
+	teacher()
+	{
+
+	}
+	teacher(int w)
+	{
+		wage = w;
+	}
+	void setwage()
+	{
+		cout << "Enter wage of teacher :";
+		cin >> wage;
+	}
+	void displayt()
+	{
+		cout << "Wage of teaacher :" << wage << endl;
+	}
+	~teacher(){}
+};
+
+int main()
+{
+	teacher obj;
+	obj.setperson();
+	obj.setemp();
+	obj.setwage();
+	cout << endl;
+	cout << "---------------------" << endl;
+	cout << endl;
+	obj.displayn();
+	obj.displaye();
+	obj.displayt();
+	return 0;
+}

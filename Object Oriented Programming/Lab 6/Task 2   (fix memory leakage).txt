@@ -1,0 +1,90 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class employee
+{
+private:
+	string name;
+	float hourly_pay_rate;
+	int working_hours;
+public:
+	employee()
+	{
+		cout << "constructor called\n";
+	}
+	employee(string n, float hpr, int hours)
+	{
+		name = n;
+		hourly_pay_rate = hpr;
+		working_hours = hours;
+	}
+	void setname(string n)
+	{
+		name = n;
+	}
+	void setpay_rate(float hprate)
+	{
+		hourly_pay_rate = hprate;
+	}
+	void setwork(int work)
+	{
+		working_hours = work;
+	}
+	void get()
+	{
+		cout << "Enter your Name : ";
+		cin>>name;
+		cout << "Enter your Pay  : ";
+		cin >> hourly_pay_rate;
+		cout << "Enter your working days per hour : ";
+		cin >> working_hours;
+	}
+	void addsal()
+	{
+		if (hourly_pay_rate < 500)
+		{
+			hourly_pay_rate = hourly_pay_rate + 10;
+		}
+	}
+	void addwork()
+	{
+		if (working_hours < 6)
+		{
+			hourly_pay_rate = hourly_pay_rate + 5;
+		}
+	}
+	void display()
+	{
+		cout << "\nEmployee Details Are \n";
+		cout << "Employee Name : " << name << endl;
+		cout << "Salary : " << hourly_pay_rate << " $" << endl;
+		cout << "Working Hours : " << working_hours << " hours per day" << endl;
+	}
+	employee(const employee& t)             // Deep Copy
+	{
+		name = t.name;
+		hourly_pay_rate = t.hourly_pay_rate;
+		working_hours = t.working_hours;
+	}
+	~employee()
+	{
+		cout << "\nDestructor is called\n";
+	}
+};
+
+int main()
+{
+	string name;
+	float pay=0;
+	int hours=0;
+	employee obj;
+	employee obj1(name, pay, hours);
+	obj1.get();
+	obj1.addsal();
+	obj1.addwork();
+	obj1.display();
+	employee obj2 = obj1;           // Shallow Copy
+	obj2.display();
+
+	return 0;
+}

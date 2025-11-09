@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+class traffic_signal
+{
+    private:
+        int choice;
+        string green="green";
+        string yellow="yellow";
+        string red="red";
+    public:
+    traffic_signal(string g, string y, string r)
+    {
+        green=g;
+        yellow=y;
+        red=r;
+    }
+    void get()
+    {
+        cout<<"Enter 1 to show green light :"<<endl;
+        cout<<"Enter 2 to show yellow light :"<<endl;
+        cout<<"Enter 3 to show red light :"<<endl;
+        cin>>choice;
+    }
+    void Green()
+    {
+        if(choice==1)
+        cout<<"Green"<<endl;
+        
+    }
+    void Yellow()
+    {
+        if(choice==2)
+            cout<<"Yellow"<<endl;
+    }
+    void Red()
+    {
+        if(choice==3)
+            cout<<"Red"<<endl;
+    }
+};
+
+int main()
+{
+    string green,yellow,red;
+    traffic_signal obj1("green","yellow","red");
+    obj1.get();
+    obj1.Green();
+    obj1.Yellow();
+    obj1.Red();
+    return 0;
+}

@@ -1,0 +1,47 @@
+// Task 4
+
+#include<iostream>
+using namespace std;
+
+class NextBridge{
+  public:
+        char name;
+        char address;
+        char phone;
+        char level;
+        
+        int experience;
+        double salary;
+        double increment;
+    //constructor
+    void employee(char n, char ad, char ph, char lvl, int expe, double sal, double inc)
+    {
+        name = n;
+        address = ad;
+        phone = ph;
+        level = lvl;
+        
+        experience = expe;
+        salary = sal;
+        increment = inc;
+    }
+    //copy constructor
+    NextBridge(NextBridge &employee){
+        employee.name;
+        employee.address;
+        employee.phone;
+        employee.level;
+        employee.experience;
+        employee.salary;
+        employee.increment;
+    }
+    
+};
+
+
+int main()
+{
+    NextBridge employee("Ahmad","Street56,LA", "Ph:0333-1234567","Junior", 2, 15000, 0)
+    
+    return 0;
+}

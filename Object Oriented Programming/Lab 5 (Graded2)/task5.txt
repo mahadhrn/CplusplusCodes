@@ -1,0 +1,52 @@
+// Task 5
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class string_funtion
+{
+private:
+	char string1[5];
+	char string2[5];
+public:
+	void display()
+	{
+		cout << "enter a string:";
+		cin.getline(string1, 5);
+		cout << "enter a string:";
+		cin.getline(string2, 5);
+	}
+	void length()
+	{
+		cout << "length of string:" << strlen(string1);
+	}
+	void compare()
+	{
+		cout << "compering string 1 and 2:" << strcmp(string1, string2);
+	}
+	void upper()
+	{
+		cout << "Uppercase letters of string:" << strupr(string1);
+	}
+	void lower()
+	{
+		cout << "Lowercase letters of string:" << strlwr(string1);
+	}
+	void copy()
+	{
+		cout << "string2:" << strcat(string1, string2);
+	}
+
+};
+int main()
+{
+	string_funtion obj1;
+	obj1.display();
+	obj1.compare();
+	obj1.copy();
+	obj1.length();
+	obj1.lower();
+	obj1.upper();
+
+	return 0;
+}

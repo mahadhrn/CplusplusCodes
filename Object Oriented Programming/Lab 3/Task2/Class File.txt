@@ -1,0 +1,48 @@
+#include<iostream>
+#include<cstring>
+#include"Header.h"
+using namespace std;
+
+//Class File
+student::student(char n[50], char reg[50], double c)
+{
+            name[50] = n[50];
+            reg_num [50] = reg[50];
+            CGPA = c;
+}
+
+void student::get()
+{
+        cout<<"Name : "<<name<<endl;
+        cout<<"Registration No : "<<reg_num<<endl;
+        cout<<"CGPA : "<<CGPA<<endl;
+}
+
+void::student::display()
+{
+    get();
+}
+
+student::student()
+{
+    cout<<"Program is in Destructor !"<<endl;
+}
+
+///////////////
+
+Date::Date(string d)
+{
+    DOB = d;
+}
+
+void Date::get1()
+{
+    cout<<"Date of Birth is : "<<DOB;
+}
+
+void Date::display1()
+{
+    cout<<"Enter Date of Birth : ";
+    cin>>DOB;
+}
+

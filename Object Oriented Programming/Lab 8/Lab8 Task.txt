@@ -1,0 +1,287 @@
+#include<iostream>
+using namespace std;
+
+const int size = 20;
+
+class Driver{
+private:
+	char* name;
+	char* number;
+	char* address;
+	char* cnic;
+	int trip;
+	double rating;
+
+public:
+	Driver()
+	{
+		name = NULL;
+		number = NULL;
+		address = NULL;
+		cnic = NULL;
+		trip = 0;
+		rating = 0;
+	}
+	~Driver()
+	{
+		delete name, number, address, cnic;
+	}
+	void set();
+	void get()const;
+};
+void Driver::set()
+{
+		char* n = new char[size];
+		char* num = new char[size];
+		char* a = new char[size];
+		char* c = new char[size];
+		int t;
+		double rat;
+		cout << "\n\n---------------------- [ Driver Info ] ----------------------\n";
+		cout << "Enter Name of Driver: ";
+		cin >> n;
+		cout << "Enter Contact of Driver: ";
+		cin >> num;
+		cout << "Enter Address of Driver: ";
+		cin >> a;
+		cout << "Enter CNIC of Driver: ";
+		cin >> c;
+		cout << "Enter Trips Completed by Driver: ";
+		cin >> t;
+		cout << "Enter Driver's Rating: ";
+		cin >> rat;
+
+		name = n;
+		number = num;
+		address = a;
+		cnic = c;
+		trip = t;
+		rating = rat;
+}
+void Driver::get()const
+{
+	cout << "\nName of the Driver: " << name << endl;
+	cout << "Contact Number of the Driver: " << number << endl;
+	cout << "Address of the Driver: " << address << endl;
+	cout << "CNIC Number of the Driver: " << cnic << endl;
+	cout << "Trips Completed the Driver: " << trip << endl;
+	cout << "Raiting of the Driver: " << rating << endl;
+}
+
+class Rider{
+private:
+	char* name;
+	char* number;
+	int trip;
+	double rating;
+
+public:
+	Rider()
+	{
+		name = NULL;
+		number = NULL;
+		trip = 0;
+		rating = 0;
+	}
+	~Rider()
+	{
+		delete name, number;
+	}
+	void set();
+	void get()const;
+};
+void Rider::set()
+{
+	char* n = new char[size];
+	char* num = new char[size];
+	int t;
+	double rat;
+	cout << "\n\n---------------------- [ Rider Info ] ----------------------\n";
+	cout << "Enter Name of Rider: ";
+	cin >> n;
+	cout << "Enter Contact of Rider: ";
+	cin >> num;
+	cout << "Enter Trips Cancelled by the Rider: ";
+	cin >> t;
+	cout << "Enter Rider's Rating: ";
+	cin >> rat;
+
+	name = n;
+	number = num;
+	trip = t;
+	rating = rat;
+}
+void Rider::get()const
+{
+	cout << "\nName of the Rider: " << name << endl;
+	cout << "Contact Number of the Rider: " << number << endl;
+	cout << "Trips Cancelled by the Rider: " << trip << endl;
+	cout << "Raiting of the Rider: " << rating << endl;
+}
+
+class Ride{
+private:
+	Driver dri;
+	Rider rid;
+	char* location;
+	char* destination;
+	char* vechileNumber;
+	int id;
+	char category;
+	double fare;
+	double kmCharges;
+	double minCharges;
+	char promoCode;
+	double discount;
+	double distance;
+	char* startTime;
+	char* endTime;	
+	double totalFare;
+	double discountedFare;
+public:
+	Ride()
+	{
+		Driver dri;
+		Rider rid;
+		location = NULL;
+		destination = NULL;
+		vechileNumber = NULL;
+		id = 0;
+		category = NULL;
+		fare = 0;
+		kmCharges = 0;
+		minCharges = 0;
+		promoCode = NULL;
+		discount = 0;
+		startTime = 0;
+		endTime = 0;
+		totalFare = 0;
+		discountedFare = 0;
+	}
+	~Ride()
+	{
+		delete location, destination, vechileNumber, category, promoCode;
+	}
+	void set();
+	void calculateBill();
+	void get();
+};
+
+void Ride::set()
+{
+	char* loc = new char[size];
+	char* des = new char[size];
+	char* vec = new char[size];
+	char cat;
+	char pro;
+	char* start = new char[size];
+	char* end = new char[size];
+	int i;
+	double dd;
+
+	cout << "Enter Pickup Location: ";
+	cin >> loc;
+	cout << "Enter Destination: ";
+	cin >> des;
+	cout << "Enter Vechile Number: ";
+	cin >> vec;
+	cout << "Enter Tracking Id: ";
+	cin >> i;
+	cout << "Ride Category\n";
+	cout << "------------------------\n";
+	cout << "B = Bike\n";
+	cout << "A = Auto\n";
+	cout << "M = Mini\n";
+	cout << "G = Go\n";
+	cout << "U = UberX\n";
+	cout << "\nSelect :";
+	cin >> cat;
+	cout << "Enter Promo Code: ";
+	cin >> pro;
+	cout << "Enter Ride Start Time: ";
+	cin >> start;
+	cout << "Enter Ride End Time: ";
+	cin >> end;
+	cout << "Enter Distance in Km: ";
+	cin >> dd;
+
+	dri.set();
+	rid.set();
+	location = loc;
+	destination = des;
+	vechileNumber = vec;
+	id = i;
+	distance = dd;
+	category = cat;
+	promoCode = pro;
+	startTime = start;
+	endTime = end;
+
+	int s, e;
+	s = atoi(startTime);        //'atoi' takes String having Integer Parameter. 
+	e = atoi(endTime);
+
+	if (category == 'B')
+	{
+		fare = 60;
+		minCharges = 3.67 * (e - s);
+		kmCharges = 6.17*distance;
+	}
+	else if (category = 'A')
+	{
+		fare = 50.71;
+		minCharges = 12.09 * (e - s);
+		kmCharges = 2.79*distance;
+	}
+	else if (category == 'M')
+	{
+		fare = 65;
+		minCharges = 8.13 * (e - s);
+		kmCharges = 3.63*distance;
+	}
+	else if (category == 'G')
+	{
+		fare = 80;
+		minCharges = 10.16 * (e - s);
+		kmCharges = 4.54*distance;
+	}
+	else if (category == 'U')
+	{
+		fare = 100;
+		minCharges = 15.16 * (e - s);
+		kmCharges = 8.54*distance;
+	}
+
+	if (promoCode == 'p')
+	{
+		discount = 25;
+	}
+}
+
+void Ride::calculateBill()
+{
+	totalFare = minCharges + fare + kmCharges;
+	if (discount > 0)
+	{
+		discountedFare = totalFare - (totalFare*discount) / 100;
+	}
+}
+
+void Ride::get()
+{
+    cout << "\n\n------------------------------------";
+	cout << "\nTotal Fare: " << totalFare << endl;
+	cout << "Fare Of Distance: " << kmCharges << endl;
+	cout << "Fare Of Time: " << minCharges << endl;
+	cout << "After Discount You Get: " << discountedFare << endl;
+	cout << "------------------------------------\n";
+	//dri.get();
+	//rid.get();
+}
+int main()
+{
+	Ride obj;
+	obj.set();
+	obj.calculateBill();
+	obj.get();
+}

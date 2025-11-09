@@ -1,0 +1,9 @@
+class automobile
+{
+    
+public:
+        void set()
+    	void Year_Manufacture()
+    	void Material()
+    	void Quality()
+};

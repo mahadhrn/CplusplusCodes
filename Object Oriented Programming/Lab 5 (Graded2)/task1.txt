@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+class savingsaccount
+{
+private:
+	float annualInterestRate;
+	float savingsBalance;
+public:
+	void setsaving(float sb);
+	void modifiyinterestrate(float ir);
+	void calculateinterestrate();
+	void dispaly();
+};
+void savingsaccount :: setsaving(float sb)
+{
+	savingsBalance = sb;
+}
+void savingsaccount :: modifiyinterestrate(float ir)
+{
+	annualInterestRate = ir;
+}
+void savingsaccount :: calculateinterestrate()
+{
+	savingsBalance += savingsBalance*annualInterestRate / 12;
+}
+void savingsaccount :: dispaly()
+{
+	cout << "Total saving ammount with " << annualInterestRate * 100 << " % interest rate: " << savingsBalance << " $" << endl;
+}
+int main()
+{
+	savingsaccount saver1;
+	savingsaccount saver2;
+	saver1.setsaving(2000.00);
+	saver1.modifiyinterestrate(0.04);
+	saver1.calculateinterestrate();
+	saver1.dispaly();
+	saver2.setsaving(3000.00);
+	saver2.modifiyinterestrate(0.04);
+	saver2.calculateinterestrate();
+	saver2.dispaly();
+	saver1.setsaving(2000.00);
+	saver1.modifiyinterestrate(0.05);
+	saver1.calculateinterestrate();
+	saver1.dispaly();
+	saver2.setsaving(3000.00);
+	saver2.modifiyinterestrate(0.05);
+	saver2.calculateinterestrate();
+	saver2.dispaly();
+
+	return 0;
+}

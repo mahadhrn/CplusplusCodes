@@ -1,0 +1,35 @@
+#include<iostream
+#include'Header.h'
+using namespace std;
+
+        traffic_signal::traffic_signal(string g, string y, string r)
+        {
+                green=g;
+                yellow=y;
+                red=r;    
+        }
+        
+        void traffic_signal::get()
+        {
+                cout<<"Enter 1 to show green light :"<<endl;
+                cout<<"Enter 2 to show yellow light :"<<endl;
+                cout<<"Enter 3 to show red light :"<<endl;
+                cin>>choice;  
+        }
+        
+        void traffic_signal::Green()
+        {
+            if(choice==1)
+            cout<<"Green"<<endl;
+            
+        }
+        void traffic_signal::Yellow()
+        {
+            if(choice==2)
+                cout<<"Yellow"<<endl;
+        }
+        void traffic_signal::Red()
+        {
+            if(choice==3)
+                cout<<"Red"<<endl;
+        }

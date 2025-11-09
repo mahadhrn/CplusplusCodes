@@ -1,0 +1,35 @@
+#include<iostream
+#include'Header.h'
+using namespace std;
+
+        
+        void automobile::set()
+        {
+            cout << "\t\t------------------ Automobile Company ------------------ \n\n";
+    		cout << "Enter Serial No :"; cin >> serial;
+            cout << "Enter Year :"; cin >> year;
+    		cout << "Enter Material :"; cin >> material;
+    		cout << "Enter Quality :"; cin >> quality;
+        }
+        
+        
+    
+        void automobile::Year_Manufacture()
+        {
+            cout<<"\n----------------------------------------"<<endl;
+            cout<<"PRODUCT : "<<serial;
+            cout<<"\nYear of Manufacture : "<<year;
+        }
+        
+        void automobile::Material()
+        {
+            cout<<"\nMaterial : "<<material;
+        }
+        
+        void automobile::Quality()
+        {
+            cout<<"\nQuality of Material : "<<quality;
+        }
+    
+    
+  

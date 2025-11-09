@@ -1,0 +1,21 @@
+class student {
+    private: 
+        char name[50];
+        char reg_num [50];
+        double CGPA;
+     
+    public:
+        student(char n[50], char reg[50], double c)
+        void get()
+        void display()
+        ~student();
+};
+
+class Date{
+    private:
+        string DOB;
+    public:
+        void get1()
+        void display1()
+        ~Date();
+};

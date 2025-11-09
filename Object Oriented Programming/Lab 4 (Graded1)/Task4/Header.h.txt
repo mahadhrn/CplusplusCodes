@@ -1,0 +1,14 @@
+class traffic_signal
+{
+private:
+        int choice;
+        string green="green";
+        string yellow="yellow";
+        string red="red";
+public:
+        traffic_signal(string g, string y, string r)
+    	void get()
+    	void Green()
+    	void Yellow()
+    	void Red()
+};

@@ -1,0 +1,77 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+class student {
+    private: 
+        char name[50];
+        char reg_num [50];
+        double CGPA;
+     
+    public:
+        student(char n[50], char reg[50], double c)
+        {
+            name[50] = n[50];
+            reg_num [50] = reg[50];
+            CGPA = c;
+        
+        }
+        
+    void get()
+    {
+        cout<<"Enter Name : ";
+        cin.getline(name,50);
+        cout<<"Enter Registration No : ";
+        cin.getline(reg_num,50);
+        cout<<"Enter CGPA : ";
+        cin>>CGPA;
+        cout<<endl<<endl;
+    }
+    
+    void display()
+    {
+        cout<<"Name : "<<name<<endl;
+        cout<<"Registration No : "<<reg_num<<endl;
+        cout<<"CGPA : "<<CGPA<<endl;
+
+    }
+};
+
+class Date{
+    private:
+        string DOB;
+    public:
+        Date(string d)
+        {
+            DOB = d;
+        }
+        
+    void get1()
+    {
+        cout<<"Enter Date of Birth : ";
+        cin>>DOB;
+    }
+    void display1()
+    {
+        cout<<"Date of Birth is : "<<DOB;
+    }
+};
+
+int main()
+{
+    char name[50];
+    char reg_num [50];
+    double CGPA;
+    
+    student obj1(name,reg_num,CGPA);
+    string DOB;
+    
+    Date obj2(DOB);
+    obj1.get();
+    obj1.display();
+    
+    obj2.get1();
+    obj2.display1();
+    
+    return 0;
+}
