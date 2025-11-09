@@ -1,0 +1,2 @@
+count remove all the blank spaces from the given
+input file containing multiple lines of text.
