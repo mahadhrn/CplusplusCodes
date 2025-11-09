@@ -5,7 +5,7 @@ Each task covers a specific concept — from simple conditionals to arrays, loop
 
 ---
 
-## 🧠 THEORY TASKS
+## 🧠 THEORY CODES
 
 1. Salary, 6 Month Profit
 2. Temperature Conversion (°C → °F)
@@ -23,7 +23,7 @@ Each task covers a specific concept — from simple conditionals to arrays, loop
 
 ---
 
-## 💻 LAB TASKS
+## 💻 LAB CODES
 
 1. Middle Number (3 Integers)
 2. Find Perimeter & Area (Rectangle + Triangle)
